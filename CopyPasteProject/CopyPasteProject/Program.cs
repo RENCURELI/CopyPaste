@@ -44,15 +44,33 @@ namespace CopyPasteProject
             switch (select)
             {
                 case 1:
+                    Console.WriteLine("Enter Target path");
+                    target = Console.ReadLine();
 
+                    Console.WriteLine("Enter Source path");
+                    source = Console.ReadLine();
+
+                    WriteFile(source, target);
                     break;
 
                 case 2:
+                    //Copy target to source
+                    break;
 
+                case 3:
+                    //Copy source to target
+                    break;
+
+                case 4:
+                    //List files in source
+                    break;
+
+                case 5:
+                    //List files in target
                     break;
 
                 default:
-
+                    Environment.Exit(0);
                     break;
             }
 
