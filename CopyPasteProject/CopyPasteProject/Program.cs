@@ -19,17 +19,46 @@ namespace CopyPasteProject
             string source;
 
             Console.WriteLine("Hello World!");
-            Console.ReadKey();
-            target = Console.ReadLine();
-            source = Console.ReadLine();
-
-            foreach (string file in GetFiles(@"D:\Documents\Coreen"))
+            string curFile = Environment.CurrentDirectory + @"\Ini.txt";
+            if (File.Exists(curFile))
             {
-                Console.WriteLine(file);
-            }
-            WriteFile(source, target);
+                foreach (string file in GetFiles(File.ReadLines(Environment.CurrentDirectory + @"\Ini.txt").First()))
+                {
+                    Console.WriteLine(file);
+                }
 
-            File.WriteAllText(File.ReadLines(Environment.CurrentDirectory + @"\Log.txt").First() + @".txt", "Bonjour");
+            }
+            else
+            {
+                Console.WriteLine("Enter Target path");
+                target = Console.ReadLine();
+
+                Console.WriteLine("Enter Source path");
+                source = Console.ReadLine();
+
+                WriteFile(source, target);
+            }
+
+            int select = Console.Read();
+
+            switch (select)
+            {
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            Console.ReadKey();
+            
+
             Console.ReadKey();
         }
         
@@ -73,12 +102,8 @@ namespace CopyPasteProject
 
         static void WriteFile(string src, string tgt)
         {
-            // Example #1: Write an array of strings to a file.
-            // Create a string array that consists of three lines.
             string[] lines = { src, tgt };
-            // WriteAllLines creates a file, writes a collection of strings to the file,
-            // and then closes the file.  You do NOT need to call Flush() or Close().
-            File.WriteAllLines(Environment.CurrentDirectory + @"\Log.txt", lines);
+            File.WriteAllLines(Environment.CurrentDirectory + @"\Ini.txt", lines);
         }
     }
 }
