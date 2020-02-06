@@ -29,7 +29,7 @@ namespace CopyPasteProject
             }
             WriteFile(source, target);
 
-            File.WriteAllText(File.ReadLines(Environment.CurrentDirectory + @"\Log.txt").First() + ".txt", "Bonjour");
+            File.WriteAllText(File.ReadLines(Environment.CurrentDirectory + @"\Log.txt").First() + @".txt", "Bonjour");
             Console.ReadKey();
         }
         
