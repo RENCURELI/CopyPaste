@@ -12,16 +12,24 @@ namespace CopyPasteProject
     class Program
     {
         string[] directories = Directory.GetDirectories("D:\\");
-
+        
         static void Main(string[] args)
         {
+            string target;
+            string source;
+
             Console.WriteLine("Hello World!");
             Console.ReadKey();
+            target = Console.ReadLine();
+            source = Console.ReadLine();
 
             foreach (string file in GetFiles(@"D:\Documents\Coreen"))
             {
                 Console.WriteLine(file);
             }
+            WriteFile(source, target);
+
+            File.WriteAllText(File.ReadLines(Environment.CurrentDirectory + @"\Log.txt").First() + ".txt", "Bonjour");
             Console.ReadKey();
         }
         
@@ -61,6 +69,16 @@ namespace CopyPasteProject
                     }
                 }
             }
+        }
+
+        static void WriteFile(string src, string tgt)
+        {
+            // Example #1: Write an array of strings to a file.
+            // Create a string array that consists of three lines.
+            string[] lines = { src, tgt };
+            // WriteAllLines creates a file, writes a collection of strings to the file,
+            // and then closes the file.  You do NOT need to call Flush() or Close().
+            File.WriteAllLines(Environment.CurrentDirectory + @"\Log.txt", lines);
         }
     }
 }
