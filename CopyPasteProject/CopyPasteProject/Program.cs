@@ -19,13 +19,21 @@ namespace CopyPasteProject
             string source;
             
             Console.WriteLine("Hello World! \n" +
-                "Bienvenu dans le programme de synchronisation");
+                "Bienvenue dans le programme de synchronisation");
             
             string curFile = Environment.CurrentDirectory + @"\Ini.txt";
             if (File.Exists(curFile))
             {
                 target = File.ReadLines(Environment.CurrentDirectory + @"\Ini.txt").Skip(1).Take(1).First();
                 source = File.ReadLines(Environment.CurrentDirectory + @"\Ini.txt").First();
+
+                Console.WriteLine("Entre la commande voulue :\n" +
+                    "1 = Mettre à jour chemin de dossier \n" +
+                    "2 = Copier de la Cible à la Source \n" +
+                    "3 = Copier de la Source à la Cible \n" +
+                    "4 = Lister contenu de la Source \n" +
+                    "5 = Lister contenu de la Cible \n" +
+                    "6 = Femer programme");
 
                 int value = Console.Read();
                 char select = Convert.ToChar(value);
@@ -83,10 +91,10 @@ namespace CopyPasteProject
             }
             else
             {
-                Console.WriteLine("Enter Target path");
+                Console.WriteLine("Enter Target path (format C:\\Documents'\'...'\'dossier final)");
                 target = Console.ReadLine();
 
-                Console.WriteLine("Enter Source path");
+                Console.WriteLine("Enter Source path (format C:\\Documents'\'...'\'dossier final)");
                 source = Console.ReadLine();
 
                 WriteFile(source, target);
