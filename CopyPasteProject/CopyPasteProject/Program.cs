@@ -33,7 +33,8 @@ namespace CopyPasteProject
                 Console.WriteLine("Pour commencer, appuyez sur Enter");
                 while (Console.ReadKey().Key != ConsoleKey.N)
                 {
-
+                    Console.ReadLine();
+                    Console.Clear();
                     //Enter command to select operation
                     Console.WriteLine("Entrez la commande voulue :\n" +
                         "1 = Mettre à jour chemin de dossier \n" +
@@ -47,7 +48,7 @@ namespace CopyPasteProject
                     int value = Console.Read();
                     //Convert value to Char
                     char select = Convert.ToChar(value);
-                    Console.ReadKey();
+                    Console.ReadLine();
 
                     //Operation selection
                     switch (select)
